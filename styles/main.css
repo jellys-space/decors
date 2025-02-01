@@ -71,6 +71,20 @@ header h1 {
   height: auto;        /* maintain aspect ratio */
 }
 
+.nav-image-text {
+  text-align: center;  /* ensure the text is centered */
+  margin-top: 0.5rem;  /* some spacing above the text */
+  font-size: 1.2rem;   /* adjust as needed */
+  color: #fff;         /* optional, if you want to ensure it’s white */
+}
+
+/* NEW OVERRIDE FOR LINKS INSIDE .nav-image-text */
+.nav-image-text a,
+.nav-image-text a:visited {
+  color: rgb(63, 72, 239); /* bright blue */
+  text-decoration: underline;
+}
+
 
 /* ========== BANNER / CATEGORY ========== */
 .category {
@@ -83,11 +97,18 @@ header h1 {
 */
 .category-banner img {
   display: block;
-  max-width: 1000px; /* e.g., 1000px or 80vw, etc. */
+  max-width: 1000px; /* remains the same on large screens */
   width: 100%;
   height: auto;
   object-fit: cover;
   margin: 0 auto;
+}
+
+/* On screens below 600px (for example), reduce the banner size */
+@media (max-width: 600px) {
+  .category-banner img {
+    max-width: 90vw; /* scale it down a bit for mobile */
+  }
 }
 
 /* 
