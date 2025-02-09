@@ -85,6 +85,48 @@ header h1 {
   text-decoration: underline;
 }
 
+.confetti-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1;   /* behind the page content */
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  display: block;
+  opacity: 0.4;
+  animation-name: confettiDrift;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;  /* single pass */
+}
+
+@keyframes confettiDriftCW {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  50% {
+    transform: translateY(50vh) translateX(5vw) rotate(90deg);
+  }
+  100% {
+    transform: translateY(120vh) translateX(-5vw) rotate(180deg);
+  }
+}
+
+@keyframes confettiDriftCCW {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  50% {
+    transform: translateY(50vh) translateX(5vw) rotate(-90deg);
+  }
+  100% {
+    transform: translateY(120vh) translateX(-5vw) rotate(-180deg);
+  }
+}
+
 
 /* ========== BANNER / CATEGORY ========== */
 .category {
