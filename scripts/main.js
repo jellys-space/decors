@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function spawnConfettiPiece(container) {
     const confetti = document.createElement('img');
     // Point this to your actual jelly-confetti image
-    confetti.src = 'styles/jelly-confetti.png';
+    confetti.src = 'styles/pancake-confetti.png';
     confetti.classList.add('confetti-piece');
 
     // Random pick: either "CW" or "CCW" animation
