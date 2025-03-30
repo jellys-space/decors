@@ -96,4 +96,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, false);
 
+    /********************************
+   * 4) ARTIST LINK VISITED STATE
+   ********************************/
+  const artistLink = document.querySelector('.artist-info a');
+  const visitedKey = 'artistLinkVisited';
+
+  if (artistLink) {
+    // Check if it was previously visited
+    if (localStorage.getItem(visitedKey)) {
+      artistLink.classList.add('visited-artist-link');
+    }
+
+    // Store in localStorage when clicked
+    artistLink.addEventListener('click', () => {
+      localStorage.setItem(visitedKey, 'true');
+    });
+  }
+
+
 });
