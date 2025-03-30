@@ -15,6 +15,7 @@
 
 
 body {
+  overflow-y: scroll; /* Show scrollbars */
   margin: 0;
   font-family: sans-serif;
   background-color: #1e1e1e;
@@ -78,54 +79,68 @@ header h1 {
   color: #fff;         /* optional, if you want to ensure it’s white */
 }
 
-/* NEW OVERRIDE FOR LINKS INSIDE .nav-image-text */
-.nav-image-text a,
-.nav-image-text a:visited {
-  color: rgb(63, 72, 239); /* bright blue */
+.faq-first-guide {
+  /* Centers the block on the page */
+  max-width: 600px; 
+  margin: 2rem auto; 
+  
+  /* Ensures each line is left-aligned inside the centered block */
+  text-align: left; 
+  line-height: 1.5;    
+
+  /* Make the text bigger */
+  font-size: 1.2rem; /* adjust as needed (e.g., 1.3rem, 1.4rem, etc.) */
+
+  /* (Optional) slightly increase spacing between paragraphs if you like */
+  /* e.g., p { margin-bottom: 1rem; } */
+}
+
+/* NEW OVERRIDE FOR LINKS INSIDE .faq-first-guide */
+.faq-first-guide a {
+  color: rgb(63, 72, 239);        /* bright blue */
   text-decoration: underline;
 }
 
-.confetti-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  pointer-events: none;
-  z-index: -1;   /* behind the page content */
-  overflow: hidden;
+.faq-extra-text {
+  /* Centers the block on the page */
+  max-width: 800px; 
+  margin: 2rem auto; 
+  
+  /* Ensures each line is left-aligned inside the centered block */
+  text-align: left; 
+  line-height: 1.5;    
+
+  /* Make the text bigger */
+  font-size: 1.2rem; /* adjust as needed (e.g., 1.3rem, 1.4rem, etc.) */
+
+  /* (Optional) slightly increase spacing between paragraphs if you like */
+  /* e.g., p { margin-bottom: 1rem; } */
 }
 
-.confetti-piece {
-  position: absolute;
+/* NEW OVERRIDE FOR LINKS INSIDE .faq-extra-text */
+.faq-extra-text a {
+  color: rgb(63, 72, 239);        /* bright blue */
+  text-decoration: underline;
+}
+
+/* Limit videos inside .faq-extra-text to 600px wide */
+.faq-extra-text video {
+  display: block;       /* so margin: 0 auto works for centering */
+  margin: 1rem auto;    /* center it horizontally, add spacing */
+  max-width: 600px;     /* pick your max width */
+  width: 100%;          /* ensure responsiveness on smaller screens */
+  height: auto;         /* maintain aspect ratio */
+}
+
+/* Similarly, limit large images */
+.faq-extra-text img {
   display: block;
-  opacity: 0.4;
-  animation-name: confettiDrift;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;  /* single pass */
+  margin: 1rem auto;    
+  max-width: 600px;     
+  width: 100%;          
+  height: auto;
 }
 
-@keyframes confettiDriftCW {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-  }
-  50% {
-    transform: translateY(50vh) translateX(5vw) rotate(90deg);
-  }
-  100% {
-    transform: translateY(120vh) translateX(-5vw) rotate(180deg);
-  }
-}
-
-@keyframes confettiDriftCCW {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-  }
-  50% {
-    transform: translateY(50vh) translateX(5vw) rotate(-90deg);
-  }
-  100% {
-    transform: translateY(120vh) translateX(-5vw) rotate(-180deg);
-  }
-}
 
 
 /* ========== BANNER / CATEGORY ========== */
@@ -139,18 +154,11 @@ header h1 {
 */
 .category-banner img {
   display: block;
-  max-width: 1000px; /* remains the same on large screens */
+  max-width: 1000px; /* e.g., 1000px or 80vw, etc. */
   width: 100%;
   height: auto;
   object-fit: cover;
   margin: 0 auto;
-}
-
-/* On screens below 600px (for example), reduce the banner size */
-@media (max-width: 600px) {
-  .category-banner img {
-    max-width: 90vw; /* scale it down a bit for mobile */
-  }
 }
 
 /* 
@@ -170,20 +178,6 @@ header h1 {
   /* centers columns if there's extra space */
   justify-content: center;
 }
-
-/* Force exactly 7 columns, only if container is wide enough */
-.decorations-grid--seven {
-  grid-template-columns: repeat(7, 150px);
-}
-
-/* On smaller screens (e.g., below 1200px), revert to auto-fit so it doesn’t overflow */
-@media (max-width: 1200px) {
-  .decorations-grid--seven {
-    grid-template-columns: repeat(auto-fit, 150px);
-  }
-}
-
-
 
 /* 
    ========== DECORATION WRAP ==========
@@ -232,7 +226,7 @@ header h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 83%;
+  width: 80%;
   height: auto;
   opacity: 0;               /* hidden until hover */
   transition: opacity 0.3s;
