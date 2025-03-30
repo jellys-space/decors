@@ -316,3 +316,25 @@ header h1 {
   -webkit-text-fill-color: transparent;
   color: transparent; /* fallback if background-clip isn’t recognized */
 }
+
+/* ========== ARTIST INFO STYLING ========== */
+.artist-info {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+}
+
+/* Link inside .artist-info */
+.artist-info a {
+  color: rgb(50, 168, 82);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.artist-info a:hover {
+  text-decoration: underline;
+}
+
+.artist-info a:visited {
+  color: rgb(141, 10, 148);
+}
