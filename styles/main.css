@@ -335,6 +335,10 @@ header h1 {
   text-decoration: underline;
 }
 
+.artist-info a:visited {
+  color: rgb(141, 10, 148);
+}
+
 .artist-info a.visited-artist-link {
   color: rgb(141, 10, 148) !important;
 }
