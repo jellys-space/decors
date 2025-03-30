@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       star.style.top = e.clientY + Math.round(Math.random() * x - x / 2) + 'px';
       star.style.left = e.clientX + Math.round(Math.random() * x - x / 2) + 'px';
 
+
       document.body.appendChild(star);
 
       // Remove star after random time, so they don't accumulate
@@ -95,5 +96,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }, Math.round(Math.random() * i * 600));
     });
   }, false);
+
+  /********************************
+   * 4) COMMISSION LINKS (TURN RED ONCE CLICKED)
+   ********************************/
+  // Any link(s) you want to remain red after being clicked
+  // Give them a class .commission-link in your HTML
+  // e.g. <a href="..." class="commission-link">zin_ar</a>
+  const commissionLinks = document.querySelectorAll('.commission-link');
+
+  commissionLinks.forEach(link => {
+    // On page load, if localStorage says this link was clicked, mark it red
+    if (localStorage.getItem(`clicked-${link.href}`) === 'true') {
+      link.classList.add('clicked');
+    }
+
+    // On click, add .clicked and store in localStorage
+    link.addEventListener('click', () => {
+      link.classList.add('clicked');
+      // Use the link href as a unique key so each link is tracked individually
+      localStorage.setItem(`clicked-${link.href}`, 'true');
+    });
+  });
 
 });
