@@ -97,22 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }, false);
 
     /********************************
-   * 4) ARTIST LINK VISITED STATE
-   ********************************/
-  const artistLink = document.querySelector('.artist-info a');
-  const visitedKey = 'artistLinkVisited';
+  * 4) ARTIST LINK VISITED STATE
+  ********************************/
+  const artistLinks = document.querySelectorAll('.artist-info a');
 
-  if (artistLink) {
-    // Check if it was previously visited
-    if (localStorage.getItem(visitedKey)) {
-      artistLink.classList.add('visited-artist-link');
+  artistLinks.forEach(link => {
+    const linkKey = `visited-${link.href}`;
+
+    // On load: check if this link was visited before
+    if (localStorage.getItem(linkKey)) {
+      link.classList.add('visited-artist-link');
     }
 
-    // Store in localStorage when clicked
-    artistLink.addEventListener('click', () => {
-      localStorage.setItem(visitedKey, 'true');
+    // On click: mark it as visited in localStorage
+    link.addEventListener('click', () => {
+      localStorage.setItem(linkKey, 'true');
     });
-  }
-
+  });
 
 });
