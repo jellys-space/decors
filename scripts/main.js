@@ -115,4 +115,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+/********************************
+ * EASTER EGG: 10 QUICK CLICKS ON #jellyHomeImg
+ ********************************/
+(function() {
+  const jellyHomeImg = document.getElementById('jellyHomeImg');
+  const easterEggModal = document.getElementById('easterEggModal');
+  if (!jellyHomeImg || !easterEggModal) return;
+
+  let clickCount = 0;
+  let lastClickTime = 0;
+  const maxGap = 2000; // 2 seconds
+
+  jellyHomeImg.addEventListener('click', () => {
+    const now = Date.now();
+    // If more than 2s since last click, reset count
+    if (now - lastClickTime > maxGap) {
+      clickCount = 0;
+    }
+    // Update lastClickTime + increment
+    lastClickTime = now;
+    clickCount++;
+
+    // If we've reached 10 within 2s between each click, show Easter egg
+    if (clickCount >= 10) {
+      showEasterEgg();
+      clickCount = 0;
+    }
+  });
+
+  // We'll store the animationFrame ID so we can stop it when closed (optional)
+  let rotateAnimationId = null;
+
+  function showEasterEgg() {
+    easterEggModal.classList.add('show');
+    
+    // Start rotating the gradient on the .modal-content element
+    const modalContent = easterEggModal.querySelector('.modal-content');
+    let angle = 0;
+
+    function rotateGradient() {
+      // Increment angle for a clockwise spin
+      angle = (angle + 0.5) % 360;
+
+      // Update the --angle property in real-time
+      modalContent.style.setProperty('--angle', angle + 'deg');
+
+      // Schedule the next frame
+      rotateAnimationId = requestAnimationFrame(rotateGradient);
+    }
+
+    rotateGradient();
+
+    // Close on any click inside the overlay
+    easterEggModal.addEventListener('click', hideEasterEgg, { once: true });
+  }
+
+  function hideEasterEgg() {
+    easterEggModal.classList.remove('show');
+    
+    // (Optional) Stop the rotation animation when closing
+    if (rotateAnimationId) {
+      cancelAnimationFrame(rotateAnimationId);
+      rotateAnimationId = null;
+    }
+  }
+})();
+
+
 });
