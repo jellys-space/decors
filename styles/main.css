@@ -343,3 +343,73 @@ header h1 {
   color: rgb(141, 10, 148) !important;
 }
 
+/********************************
+ * EASTER EGG MODAL
+ ********************************/
+ .modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #2b2b2b;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+  max-width: 400px;
+  width: 80%;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+
+  /* 
+    Define a CSS variable for the gradient angle. 
+    The JS code will keep incrementing this --angle.
+  */
+  --angle: 0deg;
+}
+
+.modal-content p {
+  margin: 0.5em 0;
+  line-height: 1;
+}
+
+/* The pseudo-element for the animated gradient outline */
+.modal-content::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 10px; 
+  z-index: -1;
+
+  /* 
+    Conic gradient references var(--angle). 
+    The JS updates --angle in real-time, causing rotation. 
+  */
+  background: conic-gradient(
+    from var(--angle),
+    #4305b7 0deg,
+    #d84ed7 120deg,
+    #2b6ee2 240deg,
+    #4305b7 360deg
+  );
+}
+
+/* If you have an image within the modal */
+.easter-egg-image {
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
