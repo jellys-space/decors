@@ -41,8 +41,16 @@ header h1 {
    so this ensures the links are on one line, centered, etc.
 */
 .top-nav {
-  margin: 0.5rem 0;        /* spacing around the nav area */
+  /* margin: 0.5rem 0; */ /* REMOVE this to avoid gaps */
   text-align: center;      /* center the links horizontally */
+
+  /* === Added sticky behavior and background === */
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(43, 43, 43, 0.8); /* semi-transparent dark background */
+  backdrop-filter: blur(5px); /* optional: frosted glass effect */
+  padding: 0.5rem 0;
 }
 
 .top-nav a {
@@ -79,6 +87,7 @@ header h1 {
   color: #fff;         /* optional, if you want to ensure it’s white */
 }
 
+/* ========== FAQ EXTRA TEXT STYLING ========== */
 .faq-extra-text {
   /* Centers the block on the page */
   max-width: 600px; 
@@ -94,6 +103,7 @@ header h1 {
   /* (Optional) slightly increase spacing between paragraphs if you like */
   /* e.g., p { margin-bottom: 1rem; } */
 }
+
 
 /* NEW OVERRIDE FOR LINKS INSIDE .faq-extra-text */
 .faq-extra-text a {
