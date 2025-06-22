@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=guidelines.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Open Graph meta tags for Discord embed -->
@@ -14,6 +13,13 @@
   <meta property="og:type" content="website">
 
   <title>Redirecting...</title>
+
+  <script>
+    // Delay redirect to give Discord time to scrape the embed
+    setTimeout(() => {
+      window.location.href = "guidelines.png";
+    }, 3000);
+  </script>
 </head>
 <body>
   <p>Redirecting to the guidelines...</p>
