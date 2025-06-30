@@ -123,17 +123,22 @@
 
   <script>
     let uploadedImageBlob = null;
-    let originalFilename = "image"; // default fallback
+    let originalFilename = "image";
 
     document.getElementById("upload").addEventListener("change", async (e) => {
       const file = e.target.files[0];
-      if (!file || !file.type.startsWith("image/png")) return;
+      if (!file) return;
+
+      const isLikelyPNG = (file.type === "image/png") || (file.name && file.name.toLowerCase().endsWith(".png"));
+      if (!isLikelyPNG) {
+        alert("⚠️ This may not be a valid PNG. Attempting anyway.");
+      }
 
       uploadedImageBlob = await file.arrayBuffer();
-      originalFilename = file.name.replace(/\.png$/i, "");
+      originalFilename = (file.name || "image").replace(/\.png$/i, "");
 
       const filenameDisplay = document.getElementById("filename");
-      filenameDisplay.textContent = `✅ Loaded: ${file.name}`;
+      filenameDisplay.textContent = `✅ Loaded: ${file.name || "Unnamed image"}`;
       filenameDisplay.style.display = "block";
 
       document.getElementById("button").disabled = false;
