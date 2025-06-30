@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PNG Hash Randomizer</title>
+  <style>
+    body {
+  font-family: system-ui, sans-serif;
+  background-color: #0d0b1b;
+  color: #cfcfff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: #c9aaff;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: #fbb1f9;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-label {
+  display: inline-block;
+  background-color: #1f1835;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0 2px #8e72ff22;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-file-label:hover {
+  background-color: #2b2250;
+  box-shadow: 0 0 0 3px #bda5ff33;
+}
+
+button {
+  padding: 0.6rem 1.5rem;
+  font-size: 1.05rem;
+  background-color: #b3a1ff;
+  border: none;
+  color: #0d0b1b;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  box-shadow: 0 4px 14px rgba(179, 161, 255, 0.25);
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #d6c8ff;
+}
+
+#hash {
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
+  color: #cfcfff;
+  word-break: break-all;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#img {
+  display: none;
+  margin: 2rem auto 0;
+  max-width: 240px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>PNG Hash Randomizer</h1>
+  <p>Select a PNG image to randomize its hash. The image won't be changed visually, just internally.</p>
+
+  <label for="upload" class="custom-file-label">Choose a PNG file</label>
+  <input type="file" id="upload" accept="image/png" />
+  <br><br>
+  <button id="button" disabled>Randomize Hash</button>
+
+
+  <p id="hash">Hash: N/A</p>
+  <img id="img" />
+
+  <script>
+    let uploadedImageBlob = null;
+    let originalFilename = "image"; // default fallback
+
+    document.getElementById("upload").addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (!file || !file.type.startsWith("image/png")) return;
+
+      uploadedImageBlob = await file.arrayBuffer();
+      originalFilename = file.name.replace(/\.png$/i, ""); // remove .png from end if present
+      document.getElementById("button").disabled = false;
+    });
+
+    document.getElementById("button").addEventListener("click", async () => {
+      const view = new DataView(uploadedImageBlob);
+      const sig = uploadedImageBlob.slice(0, 8);
+
+      const splitChunks = () => {
+        const chunks = [];
+        let offset = 8;
+        while (offset < uploadedImageBlob.byteLength) {
+          const length = view.getUint32(offset);
+          const type = new TextDecoder().decode(new Uint8Array(uploadedImageBlob, offset + 4, 4));
+          const data = new Uint8Array(uploadedImageBlob, offset + 8, length);
+          const crc = view.getUint32(offset + 8 + length);
+          chunks.push({ length, type, data, crc });
+          offset += 12 + length;
+        }
+        return chunks;
+      };
+
+      const crcTable = (() => {
+        let table = [], c;
+        for (let n = 0; n < 256; n++) {
+          c = n;
+          for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+          table[n] = c;
+        }
+        return table;
+      })();
+
+      const crc32 = (buff) => {
+        let crc = ~0;
+        for (let i = 0; i < buff.length; i++)
+          crc = (crc >>> 8) ^ crcTable[(crc ^ buff[i]) & 0xff];
+        return ~crc >>> 0;
+      };
+
+      const keyword = "HashScramble";
+      const random = Math.random().toString(30).slice(2);
+      const textData = new TextEncoder().encode(keyword + "\0" + random);
+
+      const createChunk = (type, data) => {
+        const input = new Uint8Array(type.length + data.length);
+        input.set(new TextEncoder().encode(type), 0);
+        input.set(data, type.length);
+        const crc = crc32(input);
+        return { type, data, crc };
+      };
+
+      const randomChunk = createChunk("tEXt", textData);
+      const chunks = splitChunks();
+
+      const newChunks = [];
+      for (const chunk of chunks) {
+        if (chunk.type === "IEND") newChunks.push(randomChunk);
+        newChunks.push(chunk);
+      }
+
+      const parts = [sig];
+      for (const chunk of newChunks) {
+        const lengthBuf = new Uint8Array(4);
+        new DataView(lengthBuf.buffer).setUint32(0, chunk.data.length);
+        parts.push(lengthBuf);
+        parts.push(new TextEncoder().encode(chunk.type));
+        parts.push(chunk.data);
+        const crcBuf = new Uint8Array(4);
+        new DataView(crcBuf.buffer).setUint32(0, chunk.crc);
+        parts.push(crcBuf);
+      }
+
+      const finalBlob = new Blob(parts, { type: "image/png" });
+      const url = URL.createObjectURL(finalBlob);
+
+      const hashBuffer = await crypto.subtle.digest("SHA-256", await finalBlob.arrayBuffer());
+      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, "0")).join("");
+
+      document.getElementById("img").src = url;
+      document.getElementById("img").style.display = "block";
+      document.getElementById("hash").innerText = "Hash: " + hashHex;
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = originalFilename + "_newhash.png";
+      a.click();
+    });
+  </script>
+
+</body>
+</html>
