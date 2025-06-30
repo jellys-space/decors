@@ -95,6 +95,15 @@ button:hover:not(:disabled) {
   box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
 }
 
+#filename {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#filename.show {
+  opacity: 1;
+}
+
   </style>
 </head>
 <body>
@@ -104,6 +113,7 @@ button:hover:not(:disabled) {
 
   <label for="upload" class="custom-file-label">Choose a PNG file</label>
   <input type="file" id="upload" accept="image/png" />
+  <p id="filename" style="font-size: 0.95rem; color: #cfcfff; margin-top: 0.5rem;"></p>
   <br><br>
   <button id="button" disabled>Randomize Hash</button>
 
@@ -120,8 +130,15 @@ button:hover:not(:disabled) {
       if (!file || !file.type.startsWith("image/png")) return;
 
       uploadedImageBlob = await file.arrayBuffer();
-      originalFilename = file.name.replace(/\.png$/i, ""); // remove .png from end if present
-      document.getElementById("button").disabled = false;
+      originalFilename = file.name.replace(/\.png$/i, "");
+
+      const filenameDisplay = document.getElementById("filename");
+      filenameDisplay.textContent = `✅ Loaded: ${file.name}`;
+      filenameDisplay.classList.add("show");
+
+
+  document.getElementById("button").disabled = false;
+
     });
 
     document.getElementById("button").addEventListener("click", async () => {
