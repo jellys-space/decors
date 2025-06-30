@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PNG Hash Randomizer</title>
 
+  <!-- Embed Metadata -->
   <meta name="theme-color" content="#e897e8">
   <meta property="og:title" content="Jelly's Space">
   <meta property="og:description" content="Change the metadata/hash of an image with ease!">
@@ -12,98 +13,97 @@
   <meta property="og:url" content="https://jellys-space.vip/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Welcome To">
+
   <style>
     body {
-  font-family: system-ui, sans-serif;
-  background-color: #0d0b1b;
-  color: #cfcfff;
-  text-align: center;
-  padding: 3rem 1rem;
-}
+      font-family: system-ui, sans-serif;
+      background-color: #0d0b1b;
+      color: #cfcfff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
 
-h1 {
-  font-size: 2.2rem;
-  color: #c9aaff;
-  margin-bottom: 0.5rem;
-}
+    h1 {
+      font-size: 2.2rem;
+      color: #c9aaff;
+      margin-bottom: 0.5rem;
+    }
 
-p {
-  font-size: 1.15rem;
-  margin-bottom: 2rem;
-  color: #fbb1f9;
-}
+    p {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      color: #fbb1f9;
+    }
 
-input[type="file"] {
-  display: none;
-}
+    input[type="file"] {
+      display: none;
+    }
 
-.custom-file-label {
-  display: inline-block;
-  background-color: #1f1835;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 0 2px #8e72ff22;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
-}
+    .custom-file-label {
+      display: inline-block;
+      background-color: #1f1835;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 0 2px #8e72ff22;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
 
-.custom-file-label:hover {
-  background-color: #2b2250;
-  box-shadow: 0 0 0 3px #bda5ff33;
-}
+    .custom-file-label:hover {
+      background-color: #2b2250;
+      box-shadow: 0 0 0 3px #bda5ff33;
+    }
 
-button {
-  padding: 0.6rem 1.5rem;
-  font-size: 1.05rem;
-  background-color: #b3a1ff;
-  border: none;
-  color: #0d0b1b;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  box-shadow: 0 4px 14px rgba(179, 161, 255, 0.25);
-}
+    button {
+      padding: 0.6rem 1.5rem;
+      font-size: 1.05rem;
+      background-color: #b3a1ff;
+      border: none;
+      color: #0d0b1b;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      box-shadow: 0 4px 14px rgba(179, 161, 255, 0.25);
+    }
 
-button:disabled {
-  background-color: #888;
-  cursor: not-allowed;
-}
+    button:disabled {
+      background-color: #888;
+      cursor: not-allowed;
+    }
 
-button:hover:not(:disabled) {
-  background-color: #d6c8ff;
-}
+    button:hover:not(:disabled) {
+      background-color: #d6c8ff;
+    }
 
-#hash {
-  font-size: 0.95rem;
-  margin-top: 1.5rem;
-  color: #cfcfff;
-  word-break: break-all;
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
+    #hash {
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      color: #cfcfff;
+      word-break: break-all;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-#img {
-  display: none;
-  margin: 2rem auto 0;
-  max-width: 240px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
-}
+    #img {
+      display: none;
+      margin: 2rem auto 0;
+      max-width: 240px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+    }
 
-#filename {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-#filename.show {
-  opacity: 1;
-}
-
+    #filename {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #b3a1ff;
+    }
   </style>
 </head>
 <body>
@@ -113,10 +113,10 @@ button:hover:not(:disabled) {
 
   <label for="upload" class="custom-file-label">Choose a PNG file</label>
   <input type="file" id="upload" accept="image/png" />
-  <p id="filename" style="font-size: 0.95rem; color: #cfcfff; margin-top: 0.5rem;"></p>
+  <p id="filename" aria-live="polite"></p>
+
   <br><br>
   <button id="button" disabled>Randomize Hash</button>
-
 
   <p id="hash">Hash: N/A</p>
   <img id="img" />
@@ -134,11 +134,9 @@ button:hover:not(:disabled) {
 
       const filenameDisplay = document.getElementById("filename");
       filenameDisplay.textContent = `✅ Loaded: ${file.name}`;
-      filenameDisplay.classList.add("show");
+      filenameDisplay.style.display = "block";
 
-
-  document.getElementById("button").disabled = false;
-
+      document.getElementById("button").disabled = false;
     });
 
     document.getElementById("button").addEventListener("click", async () => {
