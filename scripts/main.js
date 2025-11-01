@@ -12406,15 +12406,6 @@ function spawnConfettiPiece(container) {
         'styles/2jelly.png',
         'styles/3jelly.png',
         'styles/4jelly.png',
-        'styles/ghost.png',
-        'styles/pumpkin.png',
-        'styles/zombie.png',
-        'styles/ghost.png',
-        'styles/pumpkin.png',
-        'styles/zombie.png',
-        'styles/ghost.png',
-        'styles/pumpkin.png',
-        'styles/zombie.png',
     ];
 
     const randomImage = confettiImages[Math.floor(Math.random() * confettiImages.length)];
