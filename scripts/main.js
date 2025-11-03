@@ -8271,6 +8271,21 @@ const categories = [
                 "asset": "Sentry Champion.png",
                 "summary": "Part of the Bloons Tower Defense 6 Preset pack."
             },
+            {
+                "name": "Glue Storm",
+                "asset": "Glue Storm.png",
+                "summary": "Part of the Bloons Tower Defense 6 Preset pack."
+            },
+            {
+                "name": "Grand Saboteur",
+                "asset": "Grand Saboteur.png",
+                "summary": "Part of the Bloons Tower Defense 6 Preset pack."
+            },
+            {
+                "name": "Sauda",
+                "asset": "Sauda.png",
+                "summary": "Part of the Bloons Tower Defense 6 Preset pack."
+            },
         ]
     },
     {
