@@ -526,7 +526,7 @@ const artists = [
         },
         commissions: [
             {
-                "type": "STEAM_GIFT",
+                "type": "STEAM_GIFTS",
                 "link": null
             },
             {
