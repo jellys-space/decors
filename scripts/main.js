@@ -1351,7 +1351,7 @@ const categories = [
             },
             {
                 "name": "Misty",
-                "artist": findUser('1062953673610772480'),
+                "artist": findUser('995598255612239884'),
                 "asset": "misty_by prince.png",
                 "summary": "Part of the Frozen Fantasy Preset pack. Add some festive flair to your profile this Christmas!",
                 "tags": [
@@ -1363,7 +1363,7 @@ const categories = [
             },
             {
                 "name": "Sakuraflakes",
-                "artist": findUser('1062953673610772480'),
+                "artist": findUser('995598255612239884'),
                 "asset": "Sakuraflakes_by prince.png",
                 "summary": "Part of the Frozen Fantasy Preset pack. Add some festive flair to your profile this Christmas!",
                 "tags": [
@@ -1375,7 +1375,7 @@ const categories = [
             },
             {
                 "name": "Snowflakes",
-                "artist": findUser('1062953673610772480'),
+                "artist": findUser('995598255612239884'),
                 "asset": "snowflakes_by prince.png",
                 "summary": "Part of the Frozen Fantasy Preset pack. Add some festive flair to your profile this Christmas!",
                 "tags": [
@@ -1387,7 +1387,7 @@ const categories = [
             },
             {
                 "name": "Snowman",
-                "artist": findUser('1062953673610772480'),
+                "artist": findUser('995598255612239884'),
                 "asset": "snowman_by prince.png",
                 "summary": "Part of the Frozen Fantasy Preset pack. Add some festive flair to your profile this Christmas!",
                 "tags": [
@@ -1399,7 +1399,7 @@ const categories = [
             },
             {
                 "name": "Winter Pearls",
-                "artist": findUser('1062953673610772480'),
+                "artist": findUser('995598255612239884'),
                 "asset": "winter pearls_by prince.png",
                 "summary": "Part of the Frozen Fantasy Preset pack. Add some festive flair to your profile this Christmas!",
                 "tags": [
