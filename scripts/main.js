@@ -939,6 +939,544 @@ const artists = [
 
 const categories = [
     {
+        "name": "Pokemon Legends ZA",
+        "banner": "pokemonza-banner.png",
+        "artist_info": `CallieVD is accepting commissions. You can find their commission info from the decors below.`,
+        "artists": [
+            findUser('811114235966521364')
+        ],
+        "decorations": [
+            {
+                "name": "Zygarde Cell",
+                "asset": "Zygarde Cell.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"green",
+					"video game",
+					"white"
+				]
+            },
+            {
+                "name": "Zygarde Core",
+                "asset": "Zygarde Core.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"green",
+					"video game",
+					"white"
+				]
+            },
+            {
+                "name": "Zygarde 10%",
+                "asset": "Zygarde%2010%25.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"green",
+					"video game",
+					"dog",
+					"animal"
+				]
+            },
+            {
+                "name": "Zygarde 50%",
+                "asset": "Zygarde%2050%25.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"green",
+					"black",
+					"grey",
+					"gray",
+					"video game"
+				]
+            },
+            {
+                "name": "Zygarde 100% Complete",
+                "asset": "Zygarde%20100%25%20Complete.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"green",
+					"black",
+					"grey",
+					"gray",
+					"video game"
+				]
+            },
+            {
+                "name": "Mega Zygarde",
+                "asset": "Mega Zygarde.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"green",
+					"black",
+					"grey",
+					"gray",
+					"video game"
+				]
+            },
+            {
+                "name": "Ange",
+                "asset": "Ange.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"blue",
+					"video game",
+					"plant"
+				]
+            },
+            {
+                "name": "Eternal Flower Floette",
+                "asset": "Eternal Flower Floette.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"red",
+					"blue",
+					"video game",
+					"plant"
+				]
+            },
+            {
+                "name": "AZ",
+                "asset": "AZ.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"white",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Harmony",
+                "asset": "Harmony.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"white",
+					"brown",
+					"red",
+					"hat",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Paxton",
+                "asset": "Paxton.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"black",
+					"blue",
+					"grey",
+					"gray",
+					"hat",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Taunie",
+                "asset": "Taunie.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"pink",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Urbain",
+                "asset": "Urbain.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"pink",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Lida",
+                "asset": "Lida.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"blue",
+					"hair",
+					"black",
+					"video game"
+				]
+            },
+            {
+                "name": "Naveen",
+                "asset": "Naveen.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"brown",
+					"hair",
+					"white",
+					"video game"
+				]
+            },
+            {
+                "name": "Emma",
+                "asset": "Emma.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"grey",
+					"gray",
+					"beige",
+					"yellow",
+					"detective",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "L",
+                "asset": "L.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"white",
+					"lysandre",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Mable",
+                "asset": "Mable.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"blue",
+					"hair",
+					"researcher",
+					"goggles",
+					"video game"
+				]
+            },
+            {
+                "name": "Nurse Joy",
+                "asset": "Nurse Joy.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"red",
+					"white",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Rotom Phone",
+                "asset": "Rotom Phone.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"red",
+					"orange",
+					"video game"
+				]
+            },
+            {
+                "name": "Jett",
+                "asset": "Jett.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"grey",
+					"gray",
+					"gold",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Vinnie",
+                "asset": "Vinnie.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"brown",
+					"sun glasses",
+					"buneary",
+					"pancham",
+					"beard",
+					"video game"
+				]
+            },
+            {
+                "name": "Tarragon",
+                "asset": "Tarragon.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"grey",
+					"gray",
+					"brown",
+					"helmet",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Canari",
+                "asset": "Canari.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"grey",
+					"gray",
+					"yellow",
+					"blue",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Gwynn",
+                "asset": "Gwynn.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"black",
+					"purple",
+					"white",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Ivor",
+                "asset": "Ivor.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"yellow",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Philippe",
+                "asset": "Philippe.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"black",
+					"spikes",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Corbeau",
+                "asset": "Corbeau.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"purple",
+					"pink",
+					"glasses",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Lebanne",
+                "asset": "Lebanne.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"white",
+					"maid",
+					"bow",
+					"ribbon",
+					"video game"
+				]
+            },
+            {
+                "name": "Jacinthe",
+                "asset": "Jacinthe.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"purple",
+					"white",
+					"ribbon",
+					"bow",
+					"video game"
+				]
+            },
+            {
+                "name": "Griselle",
+                "asset": "Griselle.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"white",
+					"red",
+					"glasses",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Grisham",
+                "asset": "Grisham.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+				"tags": [
+					"white",
+					"red",
+					"glasses",
+					"hair",
+					"video game"
+				]
+            },
+            {
+                "name": "Mega Feraligatr",
+                "asset": "mega feraligatr.png",
+                "summary": "Toilet.\n\nPart of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "grey",
+                    "red",
+                    "gray",
+                    "video game",
+					"toilet"
+                ]
+            },
+            {
+                "name": "Mega Meganium",
+                "asset": "mega meganium.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "pink",
+                    "red",
+                    "white",
+					"flower",
+					"antennae",
+                    "video game"
+                ]
+            },
+            {
+                "name": "Mega Emboar",
+                "asset": "mega emboar.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "gray",
+					"grey",
+                    "red",
+					"fire",
+                    "yellow",
+                    "video game"
+                ]
+            },
+            {
+                "name": "Mega Victreebel",
+                "asset": "mega victreebel.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "green",
+                    "brown",
+                    "plant",
+					"leaf",
+                    "video game"
+                ]
+            },
+            {
+                "name": "Mega Dragonite",
+                "asset": "mega dragonite.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "white",
+                    "blue",
+                    "cyan",
+					"horns",
+					"wings",
+                    "video game"
+                ]
+            },
+            {
+                "name": "Mega Clefable",
+                "asset": "mega clefable.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "fairy",
+                    "pink",
+                    "yellow",
+					"wings",
+                    "video game"
+                ]
+            },
+            {
+                "name": "Mega Starmie",
+                "asset": "Mega Starmie.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "purple",
+                    "red",
+                    "yellow",
+                    "video game"
+                ]
+            },
+            {
+                "name": "Mega Raichu X",
+                "asset": "mega raichu x.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "orange",
+					"yellow",
+                    "black",
+                    "electric",
+                    "video game"
+                ]
+            },
+            {
+                "name": "Mega Raichu Y",
+                "asset": "mega raichu y.png",
+                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
+                "tags": [
+                    "yellow",
+                    "brown",
+                    "electric",
+                    "video game"
+                ]
+            },
+        ]
+    },
+    {
+        "name": "Bee Swarm Simulator",
+        "banner": "bee-banner.png",
+        "artist_info": `Alide is accepting commissions. You can find their commission info from the decors below.`,
+        "artists": [
+            findUser('1096831760089763860')
+        ],
+        "decorations": [
+            {
+                "name": "Demon Bee",
+                "asset": "Demon bee.png",
+                "summary": "Part of the Bee Swarm Simulator Preset pack.",
+            },
+            {
+                "name": "Tadpole Bee",
+                "asset": "Tadpole bee.png",
+                "summary": "Part of the Bee Swarm Simulator Preset pack.",
+            },
+            {
+                "name": "Buoyant Bee",
+                "asset": "Buoyant bee.png",
+                "summary": "Part of the Bee Swarm Simulator Preset pack.",
+            },
+            {
+                "name": "Precise Bee",
+                "asset": "Precise bee.png",
+                "summary": "Part of the Bee Swarm Simulator Preset pack.",
+            },
+            {
+                "name": "Spicy Bee",
+                "asset": "Spicy bee.png",
+                "summary": "Part of the Bee Swarm Simulator Preset pack.",
+            },
+            {
+                "name": "Fuzzy Bee",
+                "asset": "Fuzzy bee.png",
+                "summary": "Part of the Bee Swarm Simulator Preset pack.",
+            },
+            {
+                "name": "Tabby Bee",
+                "asset": "Tabby bee.png",
+                "summary": "Part of the Bee Swarm Simulator Preset pack.",
+            },
+            {
+                "name": "Gummy Bee",
+                "asset": "Gummy bee.png",
+                "summary": "Part of the Bee Swarm Simulator Preset pack.",
+            },
+        ]
+    },
+    {
         "name": "Christmas Xmas",
         "banner": "xmas-banner.png",
         "artist_info": `Some artists are accepting commissions. You can find their commission info from the decors below.`,
@@ -1856,396 +2394,6 @@ const categories = [
                 "summary": "Part of the Checkpoint Preset pack.",
                 "tags": [
                     "animated"
-				]
-            },
-        ]
-    },
-    {
-        "name": "Pokemon Legends ZA",
-        "banner": "pokemonza-banner.png",
-        "artist_info": null,
-        "artists": [
-            findUser('811114235966521364')
-        ],
-        "decorations": [
-            {
-                "name": "Zygarde Cell",
-                "asset": "Zygarde Cell.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"green",
-					"video game",
-					"white"
-				]
-            },
-            {
-                "name": "Zygarde Core",
-                "asset": "Zygarde Core.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"green",
-					"video game",
-					"white"
-				]
-            },
-            {
-                "name": "Zygarde 10%",
-                "asset": "Zygarde%2010%25.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"green",
-					"video game",
-					"dog",
-					"animal"
-				]
-            },
-            {
-                "name": "Zygarde 50%",
-                "asset": "Zygarde%2050%25.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"green",
-					"black",
-					"grey",
-					"gray",
-					"video game"
-				]
-            },
-            {
-                "name": "Zygarde 100% Complete",
-                "asset": "Zygarde%20100%25%20Complete.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"green",
-					"black",
-					"grey",
-					"gray",
-					"video game"
-				]
-            },
-            {
-                "name": "Mega Zygarde",
-                "asset": "Mega Zygarde.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"green",
-					"black",
-					"grey",
-					"gray",
-					"video game"
-				]
-            },
-            {
-                "name": "Ange",
-                "asset": "Ange.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"blue",
-					"video game",
-					"plant"
-				]
-            },
-            {
-                "name": "Eternal Flower Floette",
-                "asset": "Eternal Flower Floette.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"red",
-					"blue",
-					"video game",
-					"plant"
-				]
-            },
-            {
-                "name": "AZ",
-                "asset": "AZ.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"white",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Harmony",
-                "asset": "Harmony.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"white",
-					"brown",
-					"red",
-					"hat",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Paxton",
-                "asset": "Paxton.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"black",
-					"blue",
-					"grey",
-					"gray",
-					"hat",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Taunie",
-                "asset": "Taunie.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"pink",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Urbain",
-                "asset": "Urbain.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"pink",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Lida",
-                "asset": "Lida.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"blue",
-					"hair",
-					"black",
-					"video game"
-				]
-            },
-            {
-                "name": "Naveen",
-                "asset": "Naveen.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"brown",
-					"hair",
-					"white",
-					"video game"
-				]
-            },
-            {
-                "name": "Emma",
-                "asset": "Emma.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"grey",
-					"gray",
-					"beige",
-					"yellow",
-					"detective",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "L",
-                "asset": "L.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"white",
-					"lysandre",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Mable",
-                "asset": "Mable.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"blue",
-					"hair",
-					"researcher",
-					"goggles",
-					"video game"
-				]
-            },
-            {
-                "name": "Nurse Joy",
-                "asset": "Nurse Joy.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"red",
-					"white",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Rotom Phone",
-                "asset": "Rotom Phone.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"red",
-					"orange",
-					"video game"
-				]
-            },
-            {
-                "name": "Jett",
-                "asset": "Jett.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"grey",
-					"gray",
-					"gold",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Vinnie",
-                "asset": "Vinnie.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"brown",
-					"sun glasses",
-					"buneary",
-					"pancham",
-					"beard",
-					"video game"
-				]
-            },
-            {
-                "name": "Tarragon",
-                "asset": "Tarragon.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"grey",
-					"gray",
-					"brown",
-					"helmet",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Canari",
-                "asset": "Canari.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"grey",
-					"gray",
-					"yellow",
-					"blue",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Gwynn",
-                "asset": "Gwynn.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"black",
-					"purple",
-					"white",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Ivor",
-                "asset": "Ivor.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"yellow",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Philippe",
-                "asset": "Philippe.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"black",
-					"spikes",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Corbeau",
-                "asset": "Corbeau.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"purple",
-					"pink",
-					"glasses",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Lebanne",
-                "asset": "Lebanne.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"white",
-					"maid",
-					"bow",
-					"ribbon",
-					"video game"
-				]
-            },
-            {
-                "name": "Jacinthe",
-                "asset": "Jacinthe.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"purple",
-					"white",
-					"ribbon",
-					"bow",
-					"video game"
-				]
-            },
-            {
-                "name": "Griselle",
-                "asset": "Griselle.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"white",
-					"red",
-					"glasses",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Grisham",
-                "asset": "Grisham.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"white",
-					"red",
-					"glasses",
-					"hair",
-					"video game"
-				]
-            },
-            {
-                "name": "Mega Starmie",
-                "asset": "Mega Starmie.png",
-                "summary": "Part of the Pokémon Legends: Z-A Preset pack.",
-				"tags": [
-					"purple",
-					"red",
-					"yellow",
-					"video game"
 				]
             },
         ]
@@ -13841,10 +13989,6 @@ function spawnConfettiPiece(container) {
         'styles/2jelly.png',
         'styles/3jelly.png',
         'styles/4jelly.png',
-        'styles/snowflake.png',
-        'styles/snowman.png',
-        'styles/snowman2.png',
-        'styles/tree.png',
     ];
 
     const randomImage = confettiImages[Math.floor(Math.random() * confettiImages.length)];
