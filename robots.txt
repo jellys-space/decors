@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /guidelines
-Disallow: /projectbiolume
+Allow: /
 
 Sitemap: https://jellys-space.vip/sitemap.xml
