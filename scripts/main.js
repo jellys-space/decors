@@ -92,6 +92,7 @@ function setParams(params) {
         url.searchParams.set(key, value);
     });
     history.replaceState(null, '', url);
+    applySEO();
 };
 function addParams(params) {
     const url = new URL(window.location);
@@ -99,6 +100,7 @@ function addParams(params) {
         url.searchParams.set(key, value);
     });
     history.replaceState(null, '', url);
+    applySEO();
 };
 function removeParams(params) {
     const url = new URL(window.location);
@@ -107,7 +109,123 @@ function removeParams(params) {
     }
     params.forEach(key => url.searchParams.delete(key));
     history.replaceState(null, '', url);
+    applySEO();
 };
+
+function setMetaTag(selector, content) {
+    let tag = document.querySelector(selector);
+
+    if (!tag) {
+        tag = document.createElement('meta');
+
+        if (selector.includes('name="')) {
+            const name = selector.match(/name="([^"]+)"/)?.[1];
+            if (name) tag.setAttribute('name', name);
+        }
+
+        if (selector.includes('property="')) {
+            const property = selector.match(/property="([^"]+)"/)?.[1];
+            if (property) tag.setAttribute('property', property);
+        }
+
+        document.head.appendChild(tag);
+    }
+
+    tag.setAttribute('content', content);
+}
+
+function setCanonical(url) {
+    let canonical = document.querySelector('link[rel="canonical"]');
+
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+    }
+
+    canonical.setAttribute('href', url);
+}
+
+function applySEO() {
+    const currentPage = new URLSearchParams(window.location.search).get('page') || 'home';
+
+    const seoPages = {
+        home: {
+            title: "Jelly's Space",
+            description: "A catalogue of custom Avatar Decorations for Vencord, all free to use.",
+            robots: "index,follow",
+            canonical: "https://jellys-space.vip/",
+            ogTitle: "Jelly's Space",
+            ogDescription: "A catalogue of custom Avatar Decorations for Vencord, all free to use.",
+            ogUrl: "https://jellys-space.vip/"
+        },
+        decors: {
+            title: "Decors - Jelly's Space",
+            description: "Browse custom Avatar Decorations for Vencord, all free to use.",
+            robots: "index,follow",
+            canonical: "https://jellys-space.vip/?page=decors",
+            ogTitle: "Decors - Jelly's Space",
+            ogDescription: "Browse custom Avatar Decorations for Vencord, all free to use.",
+            ogUrl: "https://jellys-space.vip/?page=decors"
+        },
+        rehash: {
+            title: "Rehash - Jelly's Space",
+            description: "Rehash images with ease.",
+            robots: "index,follow",
+            canonical: "https://jellys-space.vip/?page=rehash",
+            ogTitle: "Rehash - Jelly's Space",
+            ogDescription: "Rehash images with ease.",
+            ogUrl: "https://jellys-space.vip/?page=rehash"
+        },
+        guide: {
+            title: "Guide - Jelly's Space",
+            description: "Guide page on Jelly's Space.",
+            robots: "noindex,follow",
+            canonical: "https://jellys-space.vip/?page=guide",
+            ogTitle: "Guide - Jelly's Space",
+            ogDescription: "Guide page on Jelly's Space.",
+            ogUrl: "https://jellys-space.vip/?page=guide"
+        },
+        faq: {
+            title: "FAQ - Jelly's Space",
+            description: "Frequently asked questions on Jelly's Space.",
+            robots: "noindex,follow",
+            canonical: "https://jellys-space.vip/?page=faq",
+            ogTitle: "FAQ - Jelly's Space",
+            ogDescription: "Frequently asked questions on Jelly's Space.",
+            ogUrl: "https://jellys-space.vip/?page=faq"
+        },
+        donate: {
+            title: "Donate - Jelly's Space",
+            description: "Donate page on Jelly's Space.",
+            robots: "noindex,follow",
+            canonical: "https://jellys-space.vip/?page=donate",
+            ogTitle: "Donate - Jelly's Space",
+            ogDescription: "Donate page on Jelly's Space.",
+            ogUrl: "https://jellys-space.vip/?page=donate"
+        }
+    };
+
+    const fallbackPage = {
+        title: "Jelly's Space",
+        description: "A catalogue of custom Avatar Decorations for Vencord, all free to use.",
+        robots: "noindex,follow",
+        canonical: window.location.href,
+        ogTitle: "Jelly's Space",
+        ogDescription: "A catalogue of custom Avatar Decorations for Vencord, all free to use.",
+        ogUrl: window.location.href
+    };
+
+    const seo = seoPages[currentPage] || fallbackPage;
+
+    document.title = seo.title;
+    setMetaTag('meta[name="description"]', seo.description);
+    setMetaTag('meta[name="robots"]', seo.robots);
+    setMetaTag('meta[property="og:title"]', seo.ogTitle);
+    setMetaTag('meta[property="og:description"]', seo.ogDescription);
+    setMetaTag('meta[property="og:url"]', seo.ogUrl);
+    setCanonical(seo.canonical);
+}
 
 
 // Settings Code
@@ -144,6 +262,7 @@ function initializeSettings() {
 }
 
 initializeSettings();
+applySEO();
 
 // Function to change a setting
 function changeSetting(key, value) {
