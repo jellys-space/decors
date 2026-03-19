@@ -330,7 +330,7 @@ function getImageAltText(type, path) {
     }
 
     if (type === 'decoration') {
-        return `${filename} decoration image`;
+        return `${filename} free discord avatar decoration for vencord`;
     }
 
     return '';
