@@ -313,8 +313,31 @@ const urls = {
     CDN: "https://cdn.jellys-space.vip" // The cdn link that assets will use (makes it esier to change if you wanted to use cdn.jellys-space.vip)
 };
 
+function getFilenameWithoutExtension(path) {
+    const filename = path.split('/').pop() || '';
+    return decodeURIComponent(filename).replace(/\.[^/.]+$/, '');
+}
+
+function getImageAltText(type, path) {
+    if (path === `${urls.CDN}/assets/default-avatar.png`) {
+        return 'The Discord Logo, used in place of an Avatar.';
+    }
+
+    const filename = getFilenameWithoutExtension(path);
+
+    if (type === 'banner') {
+        return `${filename} banner image`;
+    }
+
+    if (type === 'decoration') {
+        return `${filename} decoration image`;
+    }
+
+    return '';
+}
+
 const notFoundHTMLContent = `
-    <img src="${urls.CDN}/assets/jelly404.png", alt="Jelly" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
+    <img src="${urls.CDN}/assets/jelly404.png" alt="Jelly" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
     <div class="text-block center">
         <h2>404</h2>
         <p>You've taken a wrong turn, and ended up in a place far, far away...</p>
@@ -12490,7 +12513,7 @@ const pages = [
         name: "Home",
         hidden: false,
         content: `
-            <img src="${urls.CDN}/assets/jellyhome.png", alt="Jelly" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
+            <img src="${urls.CDN}/assets/jellyhome.png", alt="Home Nav image" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
             <div class="text-block center">
                 <h2>Welcome to Jelly's Space!</h2>
                 <p>Here, you can find a huge catalog of custom-made Avatar Decorations to use with the Decor plugin for Vencord!</p>
@@ -12513,7 +12536,7 @@ const pages = [
         hidden: false,
         content: `
             <div class="text-block center">
-                <img src="${urls.CDN}/assets/jellydecors.png", alt="Jelly" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
+                <img src="${urls.CDN}/assets/jellydecors.png", alt="Decors Nav image" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
                 <p>Custom Avatar Decorations for your Vencord!</p>
                 <p>Make sure you check out the guide so you know how to use them!</p>
                 <p>(>^.^)><(^o^<)</p>
@@ -12554,7 +12577,7 @@ const pages = [
         name: "Guide",
         hidden: false,
         content: `
-            <img src="${urls.CDN}/assets/jellyguide.png", alt="Jelly" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
+            <img src="${urls.CDN}/assets/jellyguide.png", alt="Guide Nav image" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
             <div class="text-block center">
                 <p>Here's how to get your own custom Decor!</p>
                 <p>Follow this guide and you'll be lookin' sweet in no time :D</p>
@@ -12643,7 +12666,7 @@ const pages = [
         name: "Artists",
         hidden: false,
         content: `
-            <img src="${urls.CDN}/assets/jellyartists.png", alt="Jelly" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
+            <img src="${urls.CDN}/assets/jellyartists.png", alt="Artists Nav image" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
             <div class="text-block center">
                 <p>Here are some of the artists who make Jelly's Space what it is~</p>
                 <p>They are amazing people who deserve love~</p>
@@ -12660,7 +12683,7 @@ const pages = [
         name: "Faq",
         hidden: false,
         content: `
-            <img src="${urls.CDN}/assets/jellyfaq.png", alt="Jelly" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
+            <img src="${urls.CDN}/assets/jellyfaq.png", alt="FAQ Nav image" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
             <div class="text-block center">
                 <p>Here, you'll find the frequently asked questions</p>
                 <p>^-^</p>
@@ -12712,7 +12735,7 @@ const pages = [
         name: "Donate",
         hidden: false,
         content: `
-            <img src="${urls.CDN}/assets/jellythx.png", alt="Jelly" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
+            <img src="${urls.CDN}/assets/jellythx.png", alt="Donate Nav image" style="height: 200px;" oncontextmenu="return false;" loading="lazy">
             <div class="text-block center">
                 <p>If you would like to donate to me, the links to do so will be below!</p>
                 <p>Mwah~</p>
@@ -12884,23 +12907,25 @@ function setPage(url) {
         // Code that's run after the set page loads
         if (page.url === "home") {
             const homenavGrid = primaryContainer.querySelector('.homenav-grid');
+            const randomMarketingImage = marketing[Math.floor(Math.random() * marketing.length)];
+
             homenavGrid.innerHTML = `
                 <div class="var1" onclick="setPage('decors')">
                     <div class="decoration-container">
-                        <img class="avatar" src="${urls.CDN}/assets/default-avatar.png", oncontextmenu="return false;" loading="lazy">
-                        <img class="deco" src="${marketing[Math.floor(Math.random() * marketing.length)]}" oncontextmenu="return false;" loading="lazy">
+                        <img class="avatar" src="${urls.CDN}/assets/default-avatar.png" alt="${getImageAltText('avatar', `${urls.CDN}/assets/default-avatar.png`)}" oncontextmenu="return false;" loading="lazy">
+                        <img class="deco" src="${randomMarketingImage}" alt="${getImageAltText('decoration', randomMarketingImage)}" oncontextmenu="return false;" loading="lazy">
                     </div>
                     <h1>Decors</h1>
                 </div>
                 <div class="var2" onclick="setPage('guide')">
                     <div>
-                        <img src="${urls.CDN}/assets/jellythonk.png" oncontextmenu="return false;" loading="lazy">
+                        <img src="${urls.CDN}/assets/jellythonk.png" alt="Guide image" oncontextmenu="return false;" loading="lazy">
                     </div>
                     <h1>How-To</h1>
                 </div>
                 <div class="var3" onclick="setPage('rehash')">
                     <div>
-                        <img src="${urls.CDN}/assets/rehashicon.png", oncontextmenu="return false;" loading="lazy">
+                        <img src="${urls.CDN}/assets/rehashicon.png" alt="Rehash image" oncontextmenu="return false;" loading="lazy">
                     </div>
                     <h1>Re-Hash</h1>
                 </div>
@@ -13252,7 +13277,7 @@ async function renderDecorsData(data, output) {
         renderPage(1);
         if (filteredData.length === 0) document.querySelector('.categories-container').innerHTML = `
             <div class="failed-search">
-                <img style="padding: 30px;" src="${urls.CDN}/assets/jellydecor404.png",>
+                <img style="padding: 30px;" src="${urls.CDN}/assets/jellydecor404.png" alt="404 no decors found">
                 <h2>Sorry, we couldn't find any decors that matched your search :(</h2>
             </div>
         `;
@@ -13267,7 +13292,7 @@ function renderCategory(categoryData, output) {
 
 
     category.innerHTML = `
-        <img src="${urls.CDN}/banners/${categoryData.banner}" class="banner" oncontextmenu="return false;" loading="lazy">
+        <img src="${urls.CDN}/banners/${categoryData.banner}" alt="${getImageAltText('banner', `${urls.CDN}/banners/${categoryData.banner}`)}" class="banner" oncontextmenu="return false;" loading="lazy">
         <p class="artist_info">${categoryData.artist_info}</p>
         <div class="decorations"></div>
     `;
@@ -13308,8 +13333,8 @@ function rendereDecor(categoryData, dco, output) {
 
     decoCard.innerHTML = `
         <div class="decoration-container">
-            <img class="avatar" src="${urls.CDN}/assets/default-avatar.png", oncontextmenu="return false;" loading="lazy">
-            <img class="deco" src="${urls.CDN}/decors/${deco.asset}" oncontextmenu="return false;" loading="lazy">
+            <img class="avatar" src="${urls.CDN}/assets/default-avatar.png" alt="${getImageAltText('avatar', `${urls.CDN}/assets/default-avatar.png`)}" oncontextmenu="return false;" loading="lazy">
+            <img class="deco" src="${urls.CDN}/decors/${deco.asset}" alt="${getImageAltText('decoration', `${urls.CDN}/decors/${deco.asset}`)}" oncontextmenu="return false;" loading="lazy">
         </div>
     `;
 
@@ -13407,14 +13432,14 @@ function openModal({
             modal.classList.add('modal-mobile');
 
             modalContent.innerHTML = `
-                <img class="pdp-bg" src="${urls.CDN}/banners/${deco.banner}">
+                <img class="pdp-bg" src="${urls.CDN}/banners/${deco.banner}" alt="${getImageAltText('banner', `${urls.CDN}/banners/${deco.banner}`)}">
                 <div class="decoration-title-container">
                     <h2>${deco.name}</h2>
                     <p id="item-credits">By ${deco.artist.name}</p>
                 </div>
                 <div class="decoration-container">
-                    <img class="avatar" src="${urls.CDN}/assets/default-avatar.png", oncontextmenu="return false;" loading="lazy">
-                    <img class="deco" src="${urls.CDN}/decors/${deco.asset}" oncontextmenu="return false;" loading="lazy">
+                    <img class="avatar" src="${urls.CDN}/assets/default-avatar.png" alt="${getImageAltText('avatar', `${urls.CDN}/assets/default-avatar.png`)}" oncontextmenu="return false;" loading="lazy">
+                    <img class="deco" src="${urls.CDN}/decors/${deco.asset}" alt="${getImageAltText('decoration', `${urls.CDN}/decors/${deco.asset}`)}" oncontextmenu="return false;" loading="lazy">
                 </div>
                 <div class="modal-bottom">
                     <button class="download-button" style="width: 100%;">Download</button>
@@ -13453,10 +13478,10 @@ function openModal({
 
             modalContent.innerHTML = `
                 <div class="modal-left">
-                    <img class="pdp-bg" src="${urls.CDN}/banners/${deco.banner}">
+                    <img class="pdp-bg" src="${urls.CDN}/banners/${deco.banner}" alt="${getImageAltText('banner', `${urls.CDN}/banners/${deco.banner}`)}">
                     <div class="decoration-container">
-                        <img class="avatar" src="${urls.CDN}/assets/default-avatar.png", oncontextmenu="return false;" loading="lazy">
-                        <img class="deco" src="${urls.CDN}/decors/${deco.asset}" oncontextmenu="return false;" loading="lazy">
+                        <img class="avatar" src="${urls.CDN}/assets/default-avatar.png" alt="${getImageAltText('avatar', `${urls.CDN}/assets/default-avatar.png`)}" oncontextmenu="return false;" loading="lazy">
+                        <img class="deco" src="${urls.CDN}/decors/${deco.asset}" alt="${getImageAltText('decoration', `${urls.CDN}/decors/${deco.asset}`)}" oncontextmenu="return false;" loading="lazy">
                     </div>
                     <div class="modal-bottom">
                         <button class="download-button" style="width: 100%;">Download</button>
